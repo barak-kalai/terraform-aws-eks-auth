@@ -34,3 +34,8 @@ variable "map_users" {
   }))
   default = []
 }
+
+variable "url" {
+  description = "cluster endpoint"
+  type = string
+}
