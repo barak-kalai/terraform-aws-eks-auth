@@ -39,3 +39,8 @@ variable "url" {
   description = "cluster endpoint"
   type = string
 }
+
+variable "cluster_certificate_authority_data" {
+  description = "cluster ca"
+  type = string  
+}
