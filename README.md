@@ -5,14 +5,13 @@ The [`terraform-aws-modules/eks/aws` v.18.20.0 release](https://github.com/terra
 You are welcome to open an issue here if you are having trouble with the migration steps below and will do my best to help.
 
 
-# Migration:
+
 
 ## steps
 
-1. Remove the `aidanmelen/eks-auth/aws` declaration for your terraform code.
-2. Remove the `aidanmelen/eks-auth/aws` resources from terraform state.
-  - The `aws-auth` configmap should still exist on the cluster but will no longer be managed by this module.
-  - A plan should show that there are no infrastructure changes to the EKS cluster.
+
+1. The `aws-auth` configmap should still exist on the cluster but will no longer be managed by this module.
+2. A plan should show that there are no infrastructure changes to the EKS cluster.
 3. Upgrade the version of the EKS module: `version = ">= v18.20.0"`
 4. Configure the `terraform-aws-modules/eks/aws` with `manage_aws_auth_configmap = true`. This version of the EKS module uses the new `kubernetes_config_map_v1_data` resource to patch `aws-auth` configmap data (just like the v1.0.0 version of this module).
 5. Plan and Apply.
