@@ -16,7 +16,7 @@ locals {
 }
 
 data "http" "wait_for_cluster" {
-  #url            = var.url
+  url            = var.url
   ca_certificate = base64decode(var.cluster_certificate_authority_data)
   # timeout        = var.wait_for_cluster_timeout
 }
